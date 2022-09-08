@@ -5797,24 +5797,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\payetakht\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\pb\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\payetakht\\source\\repos\\MyShop\\MyShop.DataLayer\\MyShop.DataLayer.csproj",
+      "projectUniqueName": "C:\\Users\\pb\\source\\repos\\kooroshgoodarzi\\rakhshplus\\MyShop.DataLayer\\MyShop.DataLayer.csproj",
       "projectName": "MyShop.DataLayer",
-      "projectPath": "C:\\Users\\payetakht\\source\\repos\\MyShop\\MyShop.DataLayer\\MyShop.DataLayer.csproj",
-      "packagesPath": "C:\\Users\\payetakht\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\payetakht\\source\\repos\\MyShop\\MyShop.DataLayer\\obj\\",
+      "projectPath": "C:\\Users\\pb\\source\\repos\\kooroshgoodarzi\\rakhshplus\\MyShop.DataLayer\\MyShop.DataLayer.csproj",
+      "packagesPath": "C:\\Users\\pb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pb\\source\\repos\\kooroshgoodarzi\\rakhshplus\\MyShop.DataLayer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\payetakht\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\pb\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5870,7 +5865,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.108\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

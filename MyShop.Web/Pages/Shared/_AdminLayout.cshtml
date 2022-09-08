@@ -1,57 +1,30 @@
 ﻿@using MyShop.Core.Security
 
+
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-
-   
-
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="fontiran.com:license" content="Y68A9">
-    <link rel="icon" href="/Template/build/images/favicon.ico" type="image/ico" />
+    <link rel="icon" href="/AdminContent/images/favicon.ico" type="image/ico" />
     <title> پنل مدیریت | @ViewData["Title"] </title>
+    @*<script src="~/AdminContent/jquery/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>*@
 
-    <!-- Bootstrap -->
-    <link href="/Template/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/Template/vendors/bootstrap-rtl/dist/css/bootstrap-rtl.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="/Template/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="/Template/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- bootstrap-progressbar -->
-    <link href="/Template/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="/Template/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- bootstrap-daterangepicker -->
-    <link href="/Template/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <script src="/AdminContent/jquery/jquery.min.js"></script>
 
-    <!-- bootstrap-wysiwyg -->
-    <link href="/Template/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
-
-    <!-- Custom Theme Style -->
-    <link href="/Template/build/css/custom.min.css" rel="stylesheet">
-   
-    <link rel="stylesheet" href="/Template/vendors/bootstrap/dist/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" href="/AdminContent/PersianDate/Content/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.css" />
-
-    @*<partial name="_Styles" />*@
-
-    <!-- Kendo UI -->
-    <link href="/Template/build/css/kendo.common.min.css" rel="stylesheet" />
-    <link href="/Template/build/css/kendo.default.min.css" rel="stylesheet" />
-    
-    <link href="Template/build/css/datatables.min.css" rel="stylesheet" />
-
-
+    <script src="/AdminContent/bootstrap/js/bootstrap.min.js"></script>
     <style>
         .tile-stats .count {
             min-height: 62px;
         }
     </style>
+    <partial name="_Styles" />
 
 </head>
 <!-- /header content -->
@@ -73,13 +46,13 @@
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
                                    aria-expanded="false">
 
-                                    @*<img src="/UserAvatar/@User)" alt="/Template.">@User.Identity.Name*@
+                                    @*<img src="/UserAvatar/@User.Identity.GetUserAvatar()" alt="..." >@User.Identity.Name*@
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
 
-                                    <li><a href="#"><i class="fa fa-user-secret pull-right"></i> تغییر کلمه عبور</a></li>
-                                    <li><a href="#"><i class="fa fa-edit pull-right"></i> ویرایش پروفایل</a></li>
+                                    <li><a href="/Admin/ChangePassword"><i class="fa fa-user-secret pull-right"></i> تغییر کلمه عبور</a></li>
+                                    <li><a href="/Admin/EditProfile"><i class="fa fa-edit pull-right"></i> ویرایش پروفایل</a></li>
                                     <li><a href="/Logout"><i class="fa fa-sign-out pull-right"></i> خروج از سامانه</a></li>
                                 </ul>
                             </li>
@@ -107,7 +80,7 @@
             <!-- footer content -->
             <footer class="hidden-print">
                 <div class="pull-left">
-                   
+                    کلیه حقوق این سایت متعلق به رخش ایران می باشد.
                 </div>
                 <div class="clearfix"></div>
             </footer>
@@ -130,43 +103,15 @@
         </table>
     </div>
 
+    <partial name="_Scripts" />
 
-<!-- jQuery -->
-<script src="/Template/vendors/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="/Template/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="/Template/vendors/fastclick/lib/fastclick.js"></script>
-<!-- NProgress -->
-<script src="/Template/vendors/nprogress/nprogress.js"></script>
-<!-- bootstrap-progressbar -->
-<script src="/Template/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-<!-- iCheck -->
-<script src="/Template/vendors/iCheck/icheck.min.js"></script>
-
-<!-- bootstrap-daterangepicker -->
-<script src="/Template/vendors/moment/min/moment.min.js"></script>
-
-<script src="/Template/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-
-<!-- bootstrap-wysiwyg -->
-<script src="/Template/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-<script src="/Template/vendors/jquery.hotkeys/jquery.hotkeys.js"></script>
-<script src="/Template/vendors/google-code-prettify/src/prettify.js"></script>
-
-<!-- Custom Theme Scripts -->
-<script src="/Template/build/js/custom.min.js"></script>
-<script src="/Template/build/js/datatables.min.js"></script>
-<script src="/Template/build/js/kendo.all.min.js"></script>
-<script src="/Template/build/js/kendo.web.min.js"></script>
-
-<script src="/AdminContent/PersianDate/Scripts/MdBootstrapPersianDateTimePicker/calendar.js" type="text/javascript"></script>
-<script src="/AdminContent/PersianDate/Scripts/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.js" type="text/javascript"></script>
-
-@RenderSection("Scripts", false)
+    @RenderSection("Scripts", false)
 
 </body>
 </html>
+
+
+
 
 
 

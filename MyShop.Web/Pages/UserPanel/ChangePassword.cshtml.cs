@@ -21,7 +21,7 @@ namespace MyShop.Web.Pages.UserPanel
 
         public IActionResult OnPost(string oldPassword, string password, string rePassword)
         {
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid)//****
                 return Page();
 
             if (!_userService.CompareOldPassword(User.Identity.Name, oldPassword))

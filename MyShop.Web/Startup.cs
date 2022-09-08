@@ -71,6 +71,7 @@ namespace MyShop.Web
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IAgentService, AgentService>();
             services.AddTransient<IPermissionService, PermissionService>();
+            services.AddTransient<IStockService, StockService>();
             #endregion
         }
 

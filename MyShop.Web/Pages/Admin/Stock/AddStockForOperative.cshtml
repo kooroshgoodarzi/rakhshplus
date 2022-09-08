@@ -1,0 +1,143 @@
+﻿@page 
+@model MyShop.Web.Pages.Admin.Stock.AddStockForOperativeModel
+@using MyShop.DataLayer.Entities
+@{
+    ViewData["Title"] = "لیست پذیرنده ها";
+        Layout = "Shared/_AdminLayout";
+}
+<style>
+    .dataTables_filter, div.dataTables_wrapper div.dataTables_filter {
+        float: right !important;
+    }
+</style>
+<form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" method="post">
+    <input type="hidden" id="AgentId" name="AgentId" />
+    <input type="hidden" id="StoreId" name="StoreId" value="@ViewData["StoreId"]" />
+
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
+            نام تامین کننده
+            <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="input-group">
+                <input type="text" class="form-control" id="AgentName" required disabled="disabled">
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-primary" onclick="ShowAgents();">انتخاب تامین کننده!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+            شناسه انبار <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="ShenaseAnbar" name="ShenaseAnbar" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+     <div class="form-group">
+        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
+            نام انبار <span class="required">*</span>
+        </label>
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            <input type="text" id="StoreName" name="StoreName" required="required" class="form-control col-md-7 col-xs-12">
+        </div>
+    </div>
+    
+    <div class="ln_solid"></div>
+    <div class="form-group">
+        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+            <a asp-page="Index" class="btn btn-info btn-round">انصراف</a>
+            <button type="submit" class="btn btn-success">ذخیره</button>
+        </div>
+    </div>
+    <h2 class="ui-pnotify-text text-danger">@ViewData["Result"]</h2>
+</form>
+
+
+<div class="modal fade docs-cropped" id="getAgentsModel" aria-hidden="true"
+     aria-labelledby="getCroppedCanvasTitle" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="getCroppedCanvasTitle">لیست تامین کننده ها</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div id="divagents">
+                            @{
+                                int rowCountagent = 1;
+
+                            }
+                            <table id="agentstable" class="table table-striped table-bordered dt-responsive wrap" cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>ردیف</th>
+                                        <th>نام نمایندگی</th>
+                                        <th>شماره تماس </th>
+                                        <th>عملیات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in ViewData["Agents"] as IEnumerable<Operative>)
+                                    {
+
+                                        <tr role="row" class="odd">
+
+                                            <td>@rowCountagent</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.TelePhone</td>
+                                            <td>
+                                                <input class="btn btn-primary btn-xs" value="انتخاب" onclick="SelectAgent( @item.OperativeId,@item.TelePhone)" />
+                                            </td>
+                                        </tr>
+                                        rowCountagent++;
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    بستن
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div><!-- /.modal -->
+
+@section Scripts{
+
+
+
+    <script>
+        $(document).ready(function () {
+            $("#agentstable").DataTable();
+        });
+        function SelectAgent(agentId, agentname) {
+
+            $("#AgentId").val(agentId);
+            $("#AgentName").val(agentname);
+            $('#getAgentsModel').modal('toggle');
+            $('#getAgentsModel').modal('hide');
+
+        }
+        function ShowAgents() {
+
+            $("#getAgentsModel").modal('show');
+
+
+        }
+    </script>
+}
+

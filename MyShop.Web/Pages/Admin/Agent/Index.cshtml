@@ -36,70 +36,73 @@
                 @{
                     int rowCount = 1;
                 }
-                <table id="myTable" class="table table-striped jambo_table">
+                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive wrap"
+                       cellspacing="0" width="100%">
                     <thead>
-                    <tr >
-                        <th>
-                            <input type="checkbox" id="checkAll" />
-                        </th>
-                        <th></th>
-                        <th class="column-title">نام </th>
-                        <th class="column-title">استان</th>
-                        <th class="column-title">شهر</th>
-                        <th class="column-title"> کد پستی </th>
-                        <th class="column-title">تلفن ثابت</th>
-                        <th class="column-title">ایمیل</th>
-                        <th class="column-title">آدرس</th>
-                        <th class="column-title">تاریخ ثبت نام</th>
-                        <th class="column-title no-link last">
-                            <span class="nobr">عملیات</span>
-                        </th>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="checkAll" />
+                            </th>
+                            <th></th>
+                            <th class="column-title">نام </th>
+                            <th class="column-title">استان</th>
+                            <th class="column-title">شهر</th>
+                            <th class="column-title"> کد پستی </th>
+                            <th class="column-title">تلفن ثابت</th>
+                            <th class="column-title">ایمیل</th>
+                            <th class="column-title">آدرس</th>
+                            <th class="column-title">تاریخ ثبت نام</th>
+                            <th class="column-title no-link last">
+                                <span class="nobr">عملیات</span>
+                            </th>
 
-                    </tr>
+                        </tr>
                     </thead>
 
                     <tbody>
-                    @foreach (var agent in Model.Agent)
-                    {
-                        <tr @*class="even pointer"*@>
+                        @foreach (var agent in Model.Agent)
+                        {
+                            <tr @*class="even pointer"*@>
 
-                            <td >
-                                <input type="checkbox" class="checkBox" value="@agent.AgentId" />
-                            </td>
-                            <td>
-                                @rowCount
-                            </td>
-                            <td class=" ">
-                                @agent.Name
-                            </td>
-                            <td class=" ">
-                                @agent.Ostan
-                            </td>
-                            <td class=" ">
-                                @agent.City
-                            </td>
-                            <td class=" ">
-                                @agent.PostalCode
-                            </td>
-                            <td class=" ">
-                                @agent.TelePhone
-                            </td>
-                            <td class=" ">
-                                @agent.Email
-                            </td>
-                            <td class=" ">
-                                @agent.Address
-                            </td>
-                            <td >
-                                @agent.CreateDtae.ToShamsi()
-                            </td>
-                            <td class=" last">
-                                <a href="/Admin/Agent/EditAgent/@agent.AgentId" class="btn btn-round btn-warning">ویرایش</a>
-                                <a href="/Admin/Agent/ShowAgentDocuments/@agent.AgentId" class="btn btn-round btn-info">مدارک</a>
-                            </td>
-                        </tr>
-                        rowCount++;
-                    }
+                                <td>
+                                    <input type="checkbox" class="checkBox" value="@agent.AgentId" />
+                                </td>
+                                <td>
+                                    @rowCount
+                                </td>
+                                <td class=" ">
+                                    @agent.Name
+                                </td>
+                                <td class=" ">
+                                    @agent.Ostan
+                                </td>
+                                <td class=" ">
+                                    @agent.City
+                                </td>
+                                <td class=" ">
+                                    @agent.PostalCode
+                                </td>
+                                <td class=" ">
+                                    @agent.TelePhone
+                                </td>
+                                <td class=" ">
+                                    @agent.Email
+                                </td>
+                                <td class=" ">
+                                    @agent.Address
+                                </td>
+                                <td>
+                                    @agent.CreateDtae.ToShamsi()
+                                </td>
+                                <td class=" last">
+
+
+                                    <a href="/Admin/Agent/ShowAgentDocuments/@agent.AgentId" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-file"></i>مدارک </a>
+                                    <a href="/Admin/Agent/EditAgent/@agent.AgentId" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>ویرایش </a>
+                                </td>
+                            </tr>
+                            rowCount++;
+                        }
                     </tbody>
                 </table>
             </div>
@@ -109,12 +112,12 @@
 
 @section Scripts
 {
-<script>
+@*<script>
 
     $(document).ready(function() {
-        $("#myTable").DataTable();
+    $("#myTable").DataTable();
     });
-</script>
+    </script>*@
 
 <script>
     $("#checkAll").click(function() {

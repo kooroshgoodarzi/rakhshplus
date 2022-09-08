@@ -28,75 +28,76 @@
             <a asp-page="CreateContract" class="btn btn-outline btn-success">افزودن قرارداد جدید</a>
             @*<button type="button" id="delete" class="btn btn-danger">حذف</button>*@
 
-            <div class="table-responsive">
-                @{
-                    int rowCount = 1;
-                }
-                <table id="myTable" class="table table-striped jambo_table">
-                    <thead>
-                        <tr>
-                            <th>
-                                <input type="checkbox" id="checkAll" />
-                            </th>
-                            <th></th>
-                            <th class="column-title">شماره قرارداد </th>
-                            <th class="column-title">تاریخ شروع</th>
-                            <th class="column-title">تاریخ پایان</th>
+        <div class="table-responsive">
+            @{
+                int rowCount = 1;
+            }
+            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive wrap"
+                   cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>
+                            <input type="checkbox" id="checkAll" />
+                        </th>
+                        <th></th>
+                        <th class="column-title">شماره قرارداد </th>
+                        <th class="column-title">تاریخ شروع</th>
+                        <th class="column-title">تاریخ پایان</th>
 
-                            <th class="column-title">تاریخ ثبت </th>
-                            <th class="column-title no-link last">
-                                <span class="nobr">عملیات</span>
-                            </th>
+                        <th class="column-title">تاریخ ثبت </th>
+                        <th class="column-title no-link last">
+                            <span class="nobr">عملیات</span>
+                        </th>
 
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var contract in Model.Contract)
+                    {
+                        <tr @*class="even pointer"*@>
+
+                            <td>
+                                <input type="checkbox" class="checkBox" value="@contract.ContractId" />
+                            </td>
+                            <td>
+                                @rowCount
+                            </td>
+                            <td class=" ">
+                                @contract.ContractNumber
+                            </td>
+                            <td class=" ">
+                                @contract.StartDate.ToShamsi()
+                            </td>
+                            <td class=" ">
+                                @contract.EndDate.ToShamsi()
+                            </td>
+
+                            <td>
+                                @contract.CreateDate.ToShamsi()
+                            </td>
+                            <td class=" last">
+                                @* <a href="/Admin/Agent/EditAgent/@agent.AgentId" class="btn btn-round btn-warning">ویرایش</a>
+                            <a href="/Admin/Agent/ShowAgentDocuments/@agent.AgentId" class="btn btn-round btn-info">مدارک</a>*@
+                            </td>
                         </tr>
-                    </thead>
-
-                    <tbody>
-                        @foreach (var contract in Model.Contract)
-                        {
-                            <tr @*class="even pointer"*@>
-
-                                <td>
-                                    <input type="checkbox" class="checkBox" value="@contract.ContractId" />
-                                </td>
-                                <td>
-                                    @rowCount
-                                </td>
-                                <td class=" ">
-                                    @contract.ContractNumber
-                                </td>
-                                <td class=" ">
-                                    @contract.StartDate.ToShamsi()
-                                </td>
-                                <td class=" ">
-                                    @contract.EndDate.ToShamsi()
-                                </td>
-
-                                <td>
-                                    @contract.CreateDate.ToShamsi()
-                                </td>
-                                <td class=" last">
-                                    @* <a href="/Admin/Agent/EditAgent/@agent.AgentId" class="btn btn-round btn-warning">ویرایش</a>
-                                        <a href="/Admin/Agent/ShowAgentDocuments/@agent.AgentId" class="btn btn-round btn-info">مدارک</a>*@
-                                </td>
-                            </tr>
-                            rowCount++;
-                        }
-                    </tbody>
-                </table>
-            </div>
+                        rowCount++;
+                    }
+                </tbody>
+            </table>
+        </div>
         </div>
     </div>
 </div>
 
 @section Scripts
 {
-<script>
+@*<script>
 
     $(document).ready(function() {
         $("#myTable").DataTable();
     });
-</script>
+</script>*@
 
 <script>
     $("#checkAll").click(function() {

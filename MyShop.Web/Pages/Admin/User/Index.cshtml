@@ -37,7 +37,8 @@
                 @{
                     int rowCount = 1;
                 }
-                <table id="myTable" class="table table-striped jambo_table">
+                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive wrap"
+                       cellspacing="0" width="100%">
                     <thead>
                         <tr>
                             <th>
@@ -95,9 +96,10 @@
                                     @user.CreateDate.ToShamsi()
                                 </td>
                                 <td class=" last">
-                                    <a href="/Admin/User/EditUser/@user.UserId" class="btn btn-round btn-warning">ویرایش</a>
-                                    @* <a href="/Admin/Agent/ShowAgentDocuments/@agent.AgentId" class="btn btn-round btn-info">مدارک</a>*@
-                                    <a href="/Admin/User/ShowUserDocuments/@user.UserId" class="btn btn-round btn-info">مدارک</a>
+                                  
+                                     <a href="/Admin/User/ShowUserDocuments/@user.UserId" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-file"></i>مدارک </a>
+                                       <a href="/Admin/User/EditUser/@user.UserId" target="_blank" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i>ویرایش </a>
+
                                 </td>
                             </tr>
                             rowCount++;
@@ -111,12 +113,12 @@
 
 @section Scripts
 {
-<script>
+@*<script>
 
     $(document).ready(function() {
         $("#myTable").DataTable();
     });
-</script>
+</script>*@
 
 <script>
     $("#checkAll").click(function() {
